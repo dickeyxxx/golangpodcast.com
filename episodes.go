@@ -45,11 +45,15 @@ func GetEpisode(slug string) *Episode {
 }
 
 func getAwsConnection() *s3.S3 {
+	if conn != nil {
+		return conn
+	}
 	auth, err := aws.EnvAuth()
 	if err != nil {
 		log.Fatal(err)
 	}
-	return s3.New(auth, aws.USEast)
+	conn = s3.New(auth, aws.USEast)
+	return conn
 }
 
 func getBucket() *s3.Bucket {
