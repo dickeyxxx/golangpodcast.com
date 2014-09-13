@@ -8,6 +8,7 @@ import (
 )
 
 var conn *s3.S3
+var episodes []*Episode
 
 type Episode struct {
 	Title string
@@ -22,12 +23,16 @@ func ParseEpisode(key s3.Key) *Episode {
 }
 
 func GetEpisodes() []*Episode {
+	if episodes != nil {
+		return episodes
+	}
+	log.Println("Fetching episodes...")
 	bucket := getBucket()
 	resp, err := bucket.List("episodes/20", "", "", 1000)
 	if err != nil {
 		log.Fatal(err)
 	}
-	episodes := make([]*Episode, 0, len(resp.Contents))
+	episodes = make([]*Episode, 0, len(resp.Contents))
 	for _, key := range resp.Contents {
 		episodes = append(episodes, ParseEpisode(key))
 	}
@@ -48,6 +53,7 @@ func getAwsConnection() *s3.S3 {
 	if conn != nil {
 		return conn
 	}
+	log.Println("Connecting to S3...")
 	auth, err := aws.EnvAuth()
 	if err != nil {
 		log.Fatal(err)
