@@ -4,17 +4,17 @@ build:
     - setup-go-workspace
 
     - script:
-        name: godep setup
+        name: setup
         code: |
           go version
           go get github.com/tools/godep
 
     - script:
-        name: go build
+        name: build
         code: |
           godep go build
 
     - script:
-        name: go test
+        name: test
         code: |
           godep go test ./... -cover
