@@ -10,6 +10,18 @@
 		{
 			"ImportPath": "github.com/julienschmidt/httprouter",
 			"Rev": "7deadb6844d2c6ff1dfb812eaa439b87cdaedf20"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/goamz/aws",
+			"Rev": "e9d94bdf4402a4136a2182838bee6dba0d7471ef"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/goamz/s3",
+			"Rev": "e9d94bdf4402a4136a2182838bee6dba0d7471ef"
+		},
+		{
+			"ImportPath": "github.com/vaughan0/go-ini",
+			"Rev": "a98ad7ee00ec53921f08832bc06ecf7fd600e6a1"
 		}
 	]
 }

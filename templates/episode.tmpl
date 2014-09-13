@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{ template "_head.tmpl" }}
+  <title>{{.Episode.Title}} - Golang Podcast</title>
+</head>
+<body>
+  <div class="container">
+    <h1>{{.Episode.Title}}</h1>
+    <audio controls>
+      <source src="{{.Episode.Url}}">
+    </audio>
+    <br>
+    <a href="{{.Episode.Url}}">Download</a>
+    <br>
+    <code>{{.Episode}}</code>
+  </div>
+</body>
+</html>
