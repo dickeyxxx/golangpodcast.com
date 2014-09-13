@@ -1,0 +1,20 @@
+box: wercker/golang
+build:
+  steps:
+    - setup-go-workspace
+
+    - script:
+        name: godep setup
+        code: |
+          go version
+          go get github.com/tools/godep
+
+    - script:
+        name: go build
+        code: |
+          godep go build
+
+    - script:
+        name: go test
+        code: |
+          godep go test ./... -cover
