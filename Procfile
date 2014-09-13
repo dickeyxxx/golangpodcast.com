@@ -1,1 +1,1 @@
-web: golangpodcast.com
+web: ./golangpodcast.com
